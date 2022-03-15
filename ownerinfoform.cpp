@@ -33,19 +33,20 @@ void OwnerInfoForm::on_btnCalc_clicked()
         {
             //qDebug() << tarifList[i]->getHouseTarifNumber();
             //qDebug() << ui->comboBoxAppartmentNumber->currentText().toInt();
-            if(ui->tableWidget->item( r, 3)->text().toInt()==tarifList[i]->getHouseTarifNumber())
-            {
-                key=i;
-                data=datat;
-            }
+            //            if(ui->tableWidget->item( r, 3)->text().toInt()==tarifList[i]->getHouseTarifNumber())
+            //            {
+            //                //key=i;
+            //                data=datat;
+            //            }
 
 
+
+            float calc=ui->tableWidget->item(r,12)->text().toInt()*tarifList[i]->getTarifSum();
+            ui->tableWidget->item( r, 9 )->setText(QString::number(calc));
+            ui->tableWidget->item( r, 10 )->setText(QString::number(0));
+            int toPayment=calc+ui->tableWidget->item( r, 11 )->text().toInt();
+            ui->tableWidget->item( r, 11 )->setText(QString::number(toPayment));
         }
-        float calc=ui->tableWidget->item(r,12)->text().toInt()*tarifList[i]->getTarifSum();
-        ui->tableWidget->item( r, 9 )->setText(QString::number(calc));
-        ui->tableWidget->item( r, 10 )->setText(QString::number(0));
-        int toPayment=calc+ui->tableWidget->item( r, 11 )->text().toInt();
-        ui->tableWidget->item( r, 11 )->setText(QString::number(toPayment));
 
     }
 }

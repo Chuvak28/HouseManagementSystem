@@ -3,8 +3,7 @@
 #include <QDebug>
 
 AddOwnerDialog::AddOwnerDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::AddOwnerDialog)
+    QDialog(parent), ui(new Ui::AddOwnerDialog)
 {
     ui->setupUi(this);
     ui->dateEdit->setDateTime(QDateTime::currentDateTime());
@@ -46,6 +45,8 @@ void AddOwnerDialog::on_comboBoxHouseNumber_currentIndexChanged(const QString &a
 }
 AddOwnerDialog::~AddOwnerDialog()
 {
+    //QVector<ObjectInfoForm *> objectList;
+    //QVector<TariffInfoForm *> tarifList;
     delete ui;
 }
 
