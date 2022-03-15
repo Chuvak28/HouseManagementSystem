@@ -4,8 +4,8 @@
 
 ObjectInfoForm::~ObjectInfoForm()
 {
-    delete ui;
     delete mAddEditDialog;
+    delete ui;
 }
 ObjectInfoForm::ObjectInfoForm(QWidget *parent) : QWidget(parent),
     ui(new Ui::ObjectInfoForm)

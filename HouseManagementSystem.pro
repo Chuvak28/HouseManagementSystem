@@ -19,6 +19,7 @@ SOURCES += \
     objectinfoform.cpp \
     ownerinfoform.cpp \
     paymentinfoform.cpp \
+    sidebar.cpp \
     tariffinfoform.cpp
 
 HEADERS += \
@@ -31,6 +32,7 @@ HEADERS += \
     objectinfoform.h \
     ownerinfoform.h \
     paymentinfoform.h \
+    sidebar.h \
     tariffinfoform.h
 
 FORMS += \
@@ -48,3 +50,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Resources.qrc

@@ -141,5 +141,12 @@ unsigned int PaymentInfoForm::getPaymentSum()
 
 PaymentInfoForm::~PaymentInfoForm()
 {
+    delete mAddPaymentDialog;
+
+    for (auto p : qAsConst(ownerList))
+    {
+        delete p;
+    }
+    ownerList.clear();
     delete ui;
 }

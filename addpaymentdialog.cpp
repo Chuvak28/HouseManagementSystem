@@ -175,6 +175,17 @@ void AddPaymentDialog::on_cmbApartmentNumber_currentIndexChanged(const QString &
 
 AddPaymentDialog::~AddPaymentDialog()
 {
+
+    for (auto p : qAsConst(objectList))
+    {
+        delete p;
+    }
+    objectList.clear();
+    for (auto p : qAsConst(ownerList))
+    {
+        delete p;
+    }
+    ownerList.clear();
     delete ui;
 }
 

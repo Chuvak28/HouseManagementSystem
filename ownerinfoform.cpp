@@ -19,8 +19,20 @@ OwnerInfoForm::OwnerInfoForm(QWidget *parent) :
 
 OwnerInfoForm::~OwnerInfoForm()
 {
-    delete ui;
+    for (auto p : qAsConst(ownerList))
+    {
+        delete p;
+    }
+    ownerList.clear();
+    for (auto p : qAsConst(tarifList))
+    {
+        delete p;
+    }
+    tarifList.clear();
+
     delete mAddOwnerDialog;
+
+    delete ui;
 }
 
 void OwnerInfoForm::on_btnCalc_clicked()

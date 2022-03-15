@@ -15,6 +15,7 @@ TariffInfoForm::TariffInfoForm(QWidget *parent) :
 
 TariffInfoForm::~TariffInfoForm()
 {
+    delete mAddTariffDialog;
     delete ui;
 }
 

@@ -18,6 +18,17 @@ AddTariffDialog::AddTariffDialog(QWidget *parent) :
 
 AddTariffDialog::~AddTariffDialog()
 {
+
+    for (auto p : qAsConst(objectList))
+    {
+        delete p;
+    }
+    objectList.clear();
+    for (auto p : qAsConst(ownerList))
+    {
+        delete p;
+    }
+    ownerList.clear();
     delete ui;
 }
 

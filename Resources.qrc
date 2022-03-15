@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/icons8-business-64.png</file>
+        <file>icons/icons8-house-64.png</file>
+        <file>icons/icons8-payment-64.png</file>
+        <file>icons/icons8-tariff-64.png</file>
+    </qresource>
+</RCC>

@@ -38,15 +38,24 @@ void AddOwnerDialog::on_comboBoxHouseNumber_currentIndexChanged(const QString &a
     }
     //int listSize=objectList.size();
     //qDebug() << listSize;
-//    for(int i=0;i<listSize;i++)
-//    {
-//        ui->comboBoxHouseNumber->addItem(QString::number(objectList[i]->getNumber()));
-//    }
+    //    for(int i=0;i<listSize;i++)
+    //    {
+    //        ui->comboBoxHouseNumber->addItem(QString::number(objectList[i]->getNumber()));
+    //    }
 }
 AddOwnerDialog::~AddOwnerDialog()
 {
-    //QVector<ObjectInfoForm *> objectList;
-    //QVector<TariffInfoForm *> tarifList;
+
+    for (auto p : qAsConst(objectList))
+    {
+        delete p;
+    }
+    objectList.clear();
+    for (auto p : tarifList)
+    {
+        delete p;
+    }
+    tarifList.clear();
     delete ui;
 }
 
