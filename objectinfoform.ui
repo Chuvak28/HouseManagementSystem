@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ObjectInfoForm</class>
+ <widget class="QWidget" name="ObjectInfoForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>850</width>
+    <height>478</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <column>
+      <property name="text">
+       <string>Номер дома</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Адрес</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Пл. земли</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Пл. двора</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Пл. здания</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Количество квартир</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Количество этажей</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Количество подъездов</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Пл. крыши</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Пл. лестничной площадки</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Пл. подвала</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QPushButton" name="btnAdd_2">
+         <property name="text">
+          <string>Add</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnDelete_2">
+         <property name="text">
+          <string>Delete</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>298</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

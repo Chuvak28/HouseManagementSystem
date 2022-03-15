@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OwnerInfoForm</class>
+ <widget class="QWidget" name="OwnerInfoForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>820</width>
+    <height>496</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_3">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <column>
+        <property name="text">
+         <string>Фамилия</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Имя</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Отчество</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>№ дома</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>№ квартиры</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Дата прописки</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Пол</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Возраст</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Телефон</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Рассчитано</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Оплачено</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>К оплате</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Пл. квартиры</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Кол-во авто</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Кол-во жителей</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Тип квартиры</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="btnAdd">
+           <property name="text">
+            <string>Add</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnDelete">
+           <property name="text">
+            <string>Delete</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnCalc">
+           <property name="text">
+            <string>Рассчитать</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>568</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
