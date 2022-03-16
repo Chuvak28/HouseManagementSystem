@@ -31,7 +31,8 @@ MainWindow::~MainWindow()
 void MainWindow::CreateUi()
 {
     showMaximized();
-    setWindowTitle(tr("Управляющая Компания"));
+    setWindowTitle(tr("HMS"));
+    setWindowIcon(QIcon("://icons/icon-hms-64.jpg"));
 
     m_mainLayout = new QHBoxLayout;
 
