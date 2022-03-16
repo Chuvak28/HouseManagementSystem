@@ -10,7 +10,7 @@ TariffInfoForm::TariffInfoForm(QWidget *parent) :
     mAddTariffDialog->setModal(true);
     ui->tableWidget->setEditTriggers(QAbstractItemView::DoubleClicked);
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-    readFromFile();
+    OnReadFromFile();
 }
 
 TariffInfoForm::~TariffInfoForm()
@@ -19,26 +19,26 @@ TariffInfoForm::~TariffInfoForm()
     delete ui;
 }
 
-QString TariffInfoForm::getDateTariff()
+QString TariffInfoForm::GetDateTariff()
 {
     return tariffDate;
 }
 
-int TariffInfoForm::getHouseTarifNumber()
+int TariffInfoForm::GetHouseTarifNumber()
 {
     return tariffHouseNumber;
 }
 
-unsigned int TariffInfoForm::getTarifSum()
+unsigned int TariffInfoForm::GetTarifSum()
 {
     return tariffSum;
 }
 
-void TariffInfoForm::setData()
+void TariffInfoForm::SetData()
 {
-    tariffDate=mAddTariffDialog->getDateTariff();
-    tariffHouseNumber=mAddTariffDialog->getHouseTarifNumber();
-    tariffSum=mAddTariffDialog->getTarifSum();
+    tariffDate=mAddTariffDialog->GetDateTariff();
+    tariffHouseNumber=mAddTariffDialog->GetHouseTarifNumber();
+    tariffSum=mAddTariffDialog->GetTarifSum();
 }
 
 void TariffInfoForm::on_btnAdd_clicked()
@@ -46,7 +46,7 @@ void TariffInfoForm::on_btnAdd_clicked()
     tableRows=ui->tableWidget->rowCount();
     if(mAddTariffDialog->exec()==QDialog::Accepted)
     {
-        setData();
+        SetData();
         ui->tableWidget->insertRow(tableRows);
         ui->tableWidget->setItem(tableRows,0, new QTableWidgetItem(tariffDate));
         ui->tableWidget->setItem(tableRows,1, new QTableWidgetItem(QString::number(tariffHouseNumber)));
@@ -60,7 +60,7 @@ void TariffInfoForm::on_btnDelete_clicked()
     ui->tableWidget->removeRow(ui->tableWidget->currentRow());
 }
 
-void TariffInfoForm::saveToFile()
+void TariffInfoForm::OnSaveToFile()
 {
     QFile f("tarif.csv");
 
@@ -84,11 +84,11 @@ void TariffInfoForm::saveToFile()
 
 void TariffInfoForm::closeEvent(QCloseEvent *event)
 {
-    saveToFile();
+    OnSaveToFile();
     event->accept();
 }
 
-void TariffInfoForm::readFromFile()
+void TariffInfoForm::OnReadFromFile()
 {
     QVector<TariffInfoForm *> tariffList = HouseManagementSystem::getInstance()->getTariffList();
     int counter=0;
@@ -96,11 +96,11 @@ void TariffInfoForm::readFromFile()
     {
         ui->tableWidget->insertRow(counter);
         ui->tableWidget->setItem(counter, 0,
-                                 new QTableWidgetItem(tariffList[i]->getDateTariff()));
+                                 new QTableWidgetItem(tariffList[i]->GetDateTariff()));
         ui->tableWidget->setItem(counter, 1,
-                                 new QTableWidgetItem(QString::number(tariffList[i]->getHouseTarifNumber())));
+                                 new QTableWidgetItem(QString::number(tariffList[i]->GetHouseTarifNumber())));
         ui->tableWidget->setItem(counter, 2,
-                                 new QTableWidgetItem(QString::number(tariffList[i]->getTarifSum())));
+                                 new QTableWidgetItem(QString::number(tariffList[i]->GetTarifSum())));
         counter++;
     }
 }

@@ -20,9 +20,9 @@ public:
     explicit AddTariffDialog(QWidget *parent = nullptr);
     ~AddTariffDialog();
 
-    QString getDateTariff();
-    int getHouseTarifNumber();
-    unsigned int getTarifSum();
+    QString GetDateTariff();
+    int GetHouseTarifNumber();
+    unsigned int GetTarifSum();
 
 private slots:
     void on_pushButton_2_clicked();

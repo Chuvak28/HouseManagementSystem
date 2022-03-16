@@ -15,22 +15,22 @@ ObjectInfoForm::ObjectInfoForm(QWidget *parent) : QWidget(parent),
     mAddEditDialog->setModal(true);
     ui->tableWidget->setEditTriggers(QAbstractItemView::DoubleClicked);
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-    readFromFile();
+    OnReadFromFile();
 }
 
-void ObjectInfoForm::setData()
+void ObjectInfoForm::SetData()
 {
-    addressOfObject=mAddEditDialog->getAddress();
-    areaOfLand=mAddEditDialog->getAreaLand();
-    areaOfYard=mAddEditDialog->getAreaYard();
-    areaOfBuilding=mAddEditDialog->getAreaBuilding();
-    areaOfRoof=mAddEditDialog->getAreaRoof();
-    areaOfBasement=mAddEditDialog->getAreaBasement();
-    areaOfStaircase=mAddEditDialog->getAreaStaircase();
-    numberOfFloors=mAddEditDialog->getNumberStages();
-    numberOfEntrances=mAddEditDialog->getNumberEntrances();
-    numberOfApartments=mAddEditDialog->getNumberApartments();
-    objectId=mAddEditDialog->getNumber();
+    addressOfObject=mAddEditDialog->GetAddress();
+    areaOfLand=mAddEditDialog->GetAreaLand();
+    areaOfYard=mAddEditDialog->GetAreaYard();
+    areaOfBuilding=mAddEditDialog->GetAreaBuilding();
+    areaOfRoof=mAddEditDialog->GetAreaRoof();
+    areaOfBasement=mAddEditDialog->GetAreaBasement();
+    areaOfStaircase=mAddEditDialog->GetAreaStaircase();
+    numberOfFloors=mAddEditDialog->GetNumberStages();
+    numberOfEntrances=mAddEditDialog->GetNumberEntrances();
+    numberOfApartments=mAddEditDialog->GetNumberApartments();
+    objectId=mAddEditDialog->GetNumber();
 }
 
 void ObjectInfoForm::on_btnAdd_2_clicked()
@@ -38,7 +38,7 @@ void ObjectInfoForm::on_btnAdd_2_clicked()
     tableRows=ui->tableWidget->rowCount();
     if(mAddEditDialog->exec()==QDialog::Accepted)
     {
-        setData();
+        SetData();
         ui->tableWidget->insertRow(tableRows);
         ui->tableWidget->setItem(tableRows,0, new QTableWidgetItem(QString::number(objectId)));
         ui->tableWidget->setItem(tableRows,1, new QTableWidgetItem(addressOfObject));
@@ -56,11 +56,11 @@ void ObjectInfoForm::on_btnAdd_2_clicked()
 
 void ObjectInfoForm::closeEvent(QCloseEvent *event)
 {
-    saveToFile();
+    OnSaveToFile();
     event->accept();
 }
 
-void ObjectInfoForm::saveToFile()
+void ObjectInfoForm::OnSaveToFile()
 {
     QFile f( "data.csv" );
 
@@ -82,7 +82,7 @@ void ObjectInfoForm::saveToFile()
     }
 }
 
-void ObjectInfoForm::readFromFile()
+void ObjectInfoForm::OnReadFromFile()
 {
     //std::vector<ObjectInfoForm> objectList = HouseManagementSystem::getInstance()->getObjectList();
     QVector<ObjectInfoForm *> objectList = HouseManagementSystem::getInstance()->getObjectList();
@@ -91,27 +91,27 @@ void ObjectInfoForm::readFromFile()
     {
         ui->tableWidget->insertRow(counter);
         ui->tableWidget->setItem(counter, 0,
-                                 new QTableWidgetItem(QString::number(objectList[i]->getNumber())));
+                                 new QTableWidgetItem(QString::number(objectList[i]->GetNumber())));
         ui->tableWidget->setItem(counter, 1,
-                                 new QTableWidgetItem(objectList[i]->getAddress()));
+                                 new QTableWidgetItem(objectList[i]->GetAddress()));
         ui->tableWidget->setItem(counter, 2,
-                                 new QTableWidgetItem(QString::number(objectList[i]->getAreaLand())));
+                                 new QTableWidgetItem(QString::number(objectList[i]->GetAreaLand())));
         ui->tableWidget->setItem(counter, 3,
-                                 new QTableWidgetItem(QString::number(objectList[i]->getAreaYard())));
+                                 new QTableWidgetItem(QString::number(objectList[i]->GetAreaYard())));
         ui->tableWidget->setItem(counter, 4,
-                                 new QTableWidgetItem(QString::number(objectList[i]->getAreaBuilding())));
+                                 new QTableWidgetItem(QString::number(objectList[i]->GetAreaBuilding())));
         ui->tableWidget->setItem(counter, 5,
-                                 new QTableWidgetItem(QString::number(objectList[i]->getNumberApartments())));
+                                 new QTableWidgetItem(QString::number(objectList[i]->GetNumberApartments())));
         ui->tableWidget->setItem(counter, 6,
-                                 new QTableWidgetItem(QString::number(objectList[i]->getNumberStages())));
+                                 new QTableWidgetItem(QString::number(objectList[i]->GetNumberStages())));
         ui->tableWidget->setItem(counter, 7,
-                                 new QTableWidgetItem(QString::number(objectList[i]->getNumberEntrances())));
+                                 new QTableWidgetItem(QString::number(objectList[i]->GetNumberEntrances())));
         ui->tableWidget->setItem(counter, 8,
-                                 new QTableWidgetItem(QString::number(objectList[i]->getAreaRoof())));
+                                 new QTableWidgetItem(QString::number(objectList[i]->GetAreaRoof())));
         ui->tableWidget->setItem(counter, 9,
-                                 new QTableWidgetItem(QString::number(objectList[i]->getAreaStaircase())));
+                                 new QTableWidgetItem(QString::number(objectList[i]->GetAreaStaircase())));
         ui->tableWidget->setItem(counter, 10,
-                                 new QTableWidgetItem(QString::number(objectList[i]->getAreaBasement())));
+                                 new QTableWidgetItem(QString::number(objectList[i]->GetAreaBasement())));
         counter++;
     }
     //    QFile file("data.csv");
@@ -156,57 +156,57 @@ void ObjectInfoForm::on_btnDelete_2_clicked()
     ui->tableWidget->removeRow(ui->tableWidget->currentRow());
 }
 
-QString ObjectInfoForm::getAddress()
+QString ObjectInfoForm::GetAddress()
 {
     return addressOfObject;
 }
 
-int ObjectInfoForm::getNumber()
+int ObjectInfoForm::GetNumber()
 {
     return objectId;
 }
 
-float ObjectInfoForm::getAreaLand()
+float ObjectInfoForm::GetAreaLand()
 {
     return areaOfLand;
 }
 
-float ObjectInfoForm::getAreaYard()
+float ObjectInfoForm::GetAreaYard()
 {
     return areaOfYard;
 }
 
-float ObjectInfoForm::getAreaBuilding()
+float ObjectInfoForm::GetAreaBuilding()
 {
     return areaOfBuilding;
 }
 
-float ObjectInfoForm::getAreaRoof()
+float ObjectInfoForm::GetAreaRoof()
 {
     return areaOfRoof;
 }
 
-float ObjectInfoForm::getAreaBasement()
+float ObjectInfoForm::GetAreaBasement()
 {
     return areaOfBasement;
 }
 
-float ObjectInfoForm::getAreaStaircase()
+float ObjectInfoForm::GetAreaStaircase()
 {
     return areaOfStaircase;
 }
 
-int ObjectInfoForm::getNumberStages()
+int ObjectInfoForm::GetNumberStages()
 {
     return numberOfFloors;
 }
 
-int ObjectInfoForm::getNumberApartments()
+int ObjectInfoForm::GetNumberApartments()
 {
     return numberOfApartments;
 }
 
-int ObjectInfoForm::getNumberEntrances()
+int ObjectInfoForm::GetNumberEntrances()
 {
     return numberOfEntrances;
 }

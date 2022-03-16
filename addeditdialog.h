@@ -14,18 +14,18 @@ class AddEditDialog : public QDialog
 public:
     explicit AddEditDialog(QWidget *parent = nullptr);
     ~AddEditDialog();
-    QString getAddress();
-    int     getNumber();
-    float   getAreaLand();//
-    float   getAreaYard();
-    float   getAreaBuilding();
-    float   getAreaRoof();//
-    float   getAreaBasement();
-    float   getAreaStaircase();
-    int     getNumberStages();
-    int     getNumberApartments();
-    int     getNumberEntrances();
-    void    setData();
+    QString GetAddress();
+    int     GetNumber();
+    float   GetAreaLand();//
+    float   GetAreaYard();
+    float   GetAreaBuilding();
+    float   GetAreaRoof();//
+    float   GetAreaBasement();
+    float   GetAreaStaircase();
+    int     GetNumberStages();
+    int     GetNumberApartments();
+    int     GetNumberEntrances();
+    void    SetData();
 
 private slots:
     void on_btnAdd_3_clicked();

@@ -12,7 +12,7 @@ AddTariffDialog::AddTariffDialog(QWidget *parent) :
 
     for(int i=0;i<listSize;i++)
     {
-        ui->cmbHouseNumber->addItem(QString::number(objectList[i]->getNumber()));
+        ui->cmbHouseNumber->addItem(QString::number(objectList[i]->GetNumber()));
     }
 }
 
@@ -32,17 +32,17 @@ AddTariffDialog::~AddTariffDialog()
     delete ui;
 }
 
-QString AddTariffDialog::getDateTariff()
+QString AddTariffDialog::GetDateTariff()
 {
     return ui->dateEdit->text();
 }
 
-int AddTariffDialog::getHouseTarifNumber()
+int AddTariffDialog::GetHouseTarifNumber()
 {
     return ui->cmbHouseNumber->currentText().toInt();
 }
 
-unsigned int AddTariffDialog::getTarifSum()
+unsigned int AddTariffDialog::GetTarifSum()
 {
     return ui->lineEditTariff->text().toInt();
 }

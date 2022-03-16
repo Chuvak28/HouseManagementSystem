@@ -22,13 +22,13 @@ public:
     ~AddPaymentDialog();
 
 
-    int getIdPaymentNumber();
-    int getTicketPaymentNumber();
-    QString getDatePayment();
-    int getHousePaymentNumber();
-    int getApartmentPaymentNumber();
-    QString getFioPayment();
-    unsigned int getPaymentSum();
+    int GetIdPaymentNumber();
+    int GetTicketPaymentNumber();
+    QString GetDatePayment();
+    int GetHousePaymentNumber();
+    int GetApartmentPaymentNumber();
+    QString GetFioPayment();
+    unsigned int GetPaymentSum();
     //friend QTextStream &operator<<(QTextStream &ds, const OwnerInfoForm &inObj);
 
 private slots:

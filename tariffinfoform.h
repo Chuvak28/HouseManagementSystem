@@ -29,11 +29,11 @@ public:
         this->tariffSum=tariffSum;
     }
 
-    QString getDateTariff();
-    int getHouseTarifNumber();
-    unsigned int getTarifSum();
+    QString GetDateTariff();
+    int GetHouseTarifNumber();
+    unsigned int GetTarifSum();
 
-    void setData();
+    void SetData();
 
 
 private slots:
@@ -41,9 +41,9 @@ private slots:
 
     void on_btnDelete_clicked();
 
-    void saveToFile();
+    void OnSaveToFile();
     void closeEvent(QCloseEvent *event);
-    void readFromFile();
+    void OnReadFromFile();
 
 private:
     Ui::TariffInfoForm *ui;

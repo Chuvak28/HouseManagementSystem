@@ -11,20 +11,20 @@ PaymentInfoForm::PaymentInfoForm(QWidget *parent) :
     //    readFromFile();
     ui->tableWidget->setEditTriggers(QAbstractItemView::DoubleClicked);
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-    readFromFile();
+    OnReadFromFile();
 }
 
 
 
-void PaymentInfoForm::setData()
+void PaymentInfoForm::SetData()
 {
-    idPaymentNumber=mAddPaymentDialog->getIdPaymentNumber();
-    ticketPaymentNumber=mAddPaymentDialog->getTicketPaymentNumber();
-    datePayment=mAddPaymentDialog->getDatePayment();
-    housePaymentNumber=mAddPaymentDialog->getHousePaymentNumber();
-    apartmentPaymentNumber=mAddPaymentDialog->getApartmentPaymentNumber();
-    fioPayment=mAddPaymentDialog->getFioPayment();
-    paymentSum=mAddPaymentDialog->getPaymentSum();
+    idPaymentNumber=mAddPaymentDialog->GetIdPaymentNumber();
+    ticketPaymentNumber=mAddPaymentDialog->GetTicketPaymentNumber();
+    datePayment=mAddPaymentDialog->GetDatePayment();
+    housePaymentNumber=mAddPaymentDialog->GetHousePaymentNumber();
+    apartmentPaymentNumber=mAddPaymentDialog->GetApartmentPaymentNumber();
+    fioPayment=mAddPaymentDialog->GetFioPayment();
+    paymentSum=mAddPaymentDialog->GetPaymentSum();
 }
 
 void PaymentInfoForm::on_btnAdd_clicked()
@@ -32,7 +32,7 @@ void PaymentInfoForm::on_btnAdd_clicked()
     tableRows=ui->tableWidget->rowCount();
     if(mAddPaymentDialog->exec()==QDialog::Accepted)
     {
-        setData();
+        SetData();
         ui->tableWidget->insertRow(tableRows);
         ui->tableWidget->setItem(tableRows,0, new QTableWidgetItem(QString::number(idPaymentNumber)));
         ui->tableWidget->setItem(tableRows,1, new QTableWidgetItem(QString::number(ticketPaymentNumber)));
@@ -44,7 +44,7 @@ void PaymentInfoForm::on_btnAdd_clicked()
     }
 }
 
-void PaymentInfoForm::saveToFile()
+void PaymentInfoForm::OnSaveToFile()
 {
     QFile f("payment.csv");
 
@@ -68,11 +68,11 @@ void PaymentInfoForm::saveToFile()
 
 void PaymentInfoForm::closeEvent(QCloseEvent *event)
 {
-    saveToFile();
+    OnSaveToFile();
     event->accept();
 }
 
-void PaymentInfoForm::readFromFile()
+void PaymentInfoForm::OnReadFromFile()
 {
     QVector<PaymentInfoForm *> paymentList = HouseManagementSystem::getInstance()->getPaymentList();
     int counter=0;
@@ -80,19 +80,19 @@ void PaymentInfoForm::readFromFile()
     {
         ui->tableWidget->insertRow(counter);
         ui->tableWidget->setItem(counter, 0,
-                                 new QTableWidgetItem(QString::number(paymentList[i]->getIdPaymentNumber())));
+                                 new QTableWidgetItem(QString::number(paymentList[i]->GetIdPaymentNumber())));
         ui->tableWidget->setItem(counter, 1,
-                                 new QTableWidgetItem(QString::number(paymentList[i]->getTicketPaymentNumber())));
+                                 new QTableWidgetItem(QString::number(paymentList[i]->GetTicketPaymentNumber())));
         ui->tableWidget->setItem(counter, 2,
-                                 new QTableWidgetItem(paymentList[i]->getDatePayment()));
+                                 new QTableWidgetItem(paymentList[i]->GetDatePayment()));
         ui->tableWidget->setItem(counter, 3,
-                                 new QTableWidgetItem(QString::number(paymentList[i]->getHousePaymentNumber())));
+                                 new QTableWidgetItem(QString::number(paymentList[i]->GetHousePaymentNumber())));
         ui->tableWidget->setItem(counter, 4,
-                                 new QTableWidgetItem(QString::number(paymentList[i]->getApartmentPaymentNumber())));
+                                 new QTableWidgetItem(QString::number(paymentList[i]->GetApartmentPaymentNumber())));
         ui->tableWidget->setItem(counter, 5,
-                                 new QTableWidgetItem(paymentList[i]->getFioPayment()));
+                                 new QTableWidgetItem(paymentList[i]->GetFioPayment()));
         ui->tableWidget->setItem(counter, 6,
-                                 new QTableWidgetItem(QString::number(paymentList[i]->getPaymentSum())));
+                                 new QTableWidgetItem(QString::number(paymentList[i]->GetPaymentSum())));
         counter++;
 
     }
@@ -104,37 +104,37 @@ void PaymentInfoForm::on_btnDelete_clicked()
     ui->tableWidget->removeRow(ui->tableWidget->currentRow());
 }
 
-int PaymentInfoForm::getIdPaymentNumber()
+int PaymentInfoForm::GetIdPaymentNumber()
 {
     return idPaymentNumber;
 }
 
-int PaymentInfoForm::getTicketPaymentNumber()
+int PaymentInfoForm::GetTicketPaymentNumber()
 {
     return ticketPaymentNumber;
 }
 
-QString PaymentInfoForm::getDatePayment()
+QString PaymentInfoForm::GetDatePayment()
 {
     return datePayment;
 }
 
-int PaymentInfoForm::getHousePaymentNumber()
+int PaymentInfoForm::GetHousePaymentNumber()
 {
     return housePaymentNumber;
 }
 
-int PaymentInfoForm::getApartmentPaymentNumber()
+int PaymentInfoForm::GetApartmentPaymentNumber()
 {
     return apartmentPaymentNumber;
 }
 
-QString PaymentInfoForm::getFioPayment()
+QString PaymentInfoForm::GetFioPayment()
 {
     return fioPayment;
 }
 
-unsigned int PaymentInfoForm::getPaymentSum()
+unsigned int PaymentInfoForm::GetPaymentSum()
 {
     return paymentSum;
 }
