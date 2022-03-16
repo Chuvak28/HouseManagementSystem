@@ -47,7 +47,7 @@ public slots:
     void OnAddTarif_triggered();
 
 private:
-    void loadSubWindow(QWidget *widget);
+    void LoadSubWindow(QWidget *widget);
 
     Ui::MainWindow *ui;
 
