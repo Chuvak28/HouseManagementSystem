@@ -19,21 +19,21 @@ class AddOwnerDialog : public QDialog
 public:
     explicit AddOwnerDialog(QWidget *parent = nullptr);
     ~AddOwnerDialog();
-    QString getOwnerLastName();
-    QString getownerFirstName();
-    QString getOwnerMiddleName();
-    QString getOwnerSex();
-    QString getOwnerAge();
-    QString getOwnerPhone();
+    QString GetOwnerLastName();
+    QString GetownerFirstName();
+    QString GetOwnerMiddleName();
+    QString GetOwnerSex();
+    QString GetOwnerAge();
+    QString GetOwnerPhone();
     //QString getOwnerCredit();
-    int     getOwnerHouseNumber();
-    int     getOwnerHouseCarNumber();
-    int     getOwnerHouseResidenceNumber();
-    int     getOwnerApartmentNumber();
-    QString getOwnerApartmentType();
-    float   getOwnerApartmentArea();
-    QString getOwnerDateRegistration();
-    float getOwnerCalculatePaySum();
+    int     GetOwnerHouseNumber();
+    int     GetOwnerHouseCarNumber();
+    int     GetOwnerHouseResidenceNumber();
+    int     GetOwnerApartmentNumber();
+    QString GetOwnerApartmentType();
+    float   GetOwnerApartmentArea();
+    QString GetOwnerDateRegistration();
+    float   GetOwnerCalculatePaySum();
 private slots:
     void on_btnAddOwner_clicked();
     void on_pushButton_2_clicked();

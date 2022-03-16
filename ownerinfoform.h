@@ -55,55 +55,55 @@ public:
     }
     ///SETTER
     ///
-    void setOwnerLastName() ;
-    void setownerFirstName();
-    void setOwnerMiddleName();
-    void setOwnerSex();
-    void setOwnerAge();
-    void setOwnerPhone();
-    void setOwnerApartmentType();
-    void setOwnerDateRegistration();
-    void     setOwnerHouseNumber();
-    void     setOwnerHouseCarNumber();
-    void     setOwnerHouseResidenceNumber();
-    void     setOwnerApartmentNumber();
-    void     setOwnerCalculated();
-    void    setOwnerPayment(int p)
+    void SetOwnerLastName() ;
+    void SetownerFirstName();
+    void SetOwnerMiddleName();
+    void SetOwnerSex();
+    void SetOwnerAge();
+    void SetOwnerPhone();
+    void SetOwnerApartmentType();
+    void SetOwnerDateRegistration();
+    void SetOwnerHouseNumber();
+    void SetOwnerHouseCarNumber();
+    void SetOwnerHouseResidenceNumber();
+    void SetOwnerApartmentNumber();
+    void SetOwnerCalculated();
+    void SetOwnerPayment(int p)
     {
         ownerPayed=p;
     }
-    void     setOwnerToPayment();
+    void SetOwnerToPayment();
 
-    void   setOwnerApartmentArea();
+    void SetOwnerApartmentArea();
 
     ///GETTER
-    QString getOwnerLastName() const;
-    QString getownerFirstName()const;
-    QString getOwnerMiddleName()const;
-    QString getOwnerSex()const;
-    QString getOwnerAge()const;
-    QString getOwnerPhone()const;
+    QString GetOwnerLastName() const;
+    QString GetownerFirstName()const;
+    QString GetOwnerMiddleName()const;
+    QString GetOwnerSex()const;
+    QString GetOwnerAge()const;
+    QString GetOwnerPhone()const;
     //QString getOwnerCredit();
-    QString getOwnerApartmentType()const;
-    QString getOwnerDateRegistration()const;
-    int     getOwnerHouseNumber()const;
-    int     getOwnerHouseCarNumber()const;
-    int     getOwnerHouseResidenceNumber()const;
-    int     getOwnerApartmentNumber()const;
-    float     getOwnerCalculated()const;
-    int     getOwnerPayed()const;
-    int     getOwnerToPayment()const;
-    float   getOwnerApartmentArea()const;
+    QString GetOwnerApartmentType()const;
+    QString GetOwnerDateRegistration()const;
+    int     GetOwnerHouseNumber()const;
+    int     GetOwnerHouseCarNumber()const;
+    int     GetOwnerHouseResidenceNumber()const;
+    int     GetOwnerApartmentNumber()const;
+    float   GetOwnerCalculated()const;
+    int     GetOwnerPayed()const;
+    int     GetOwnerToPayment()const;
+    float   GetOwnerApartmentArea()const;
 
 
 
-    void setData();
+    void SetData();
 
 private slots:
     void on_btnAdd_clicked();
     void closeEvent(QCloseEvent *event);
-    void saveToFile();
-    void readFromFile();
+    void OnSaveToFile();
+    void OnReadFromFile();
 
     void on_btnDelete_clicked();
 

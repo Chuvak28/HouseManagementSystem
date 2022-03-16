@@ -13,7 +13,7 @@ AddOwnerDialog::AddOwnerDialog(QWidget *parent) :
 
     for(int i=0;i<listSize;i++)
     {
-        ui->comboBoxHouseNumber->addItem(QString::number(objectList[i]->getNumber()));
+        ui->comboBoxHouseNumber->addItem(QString::number(objectList[i]->GetNumber()));
     }
 }
 
@@ -26,9 +26,9 @@ void AddOwnerDialog::on_comboBoxHouseNumber_currentIndexChanged(const QString &a
     int apartmentNumbers = 0;
     for(int i=0;i<listSize;++i)
     {
-        if(arg1.toInt()==objectList[i]->getNumber())
+        if(arg1.toInt()==objectList[i]->GetNumber())
         {
-            apartmentNumbers=objectList[i]->getNumberApartments();
+            apartmentNumbers=objectList[i]->GetNumberApartments();
             break;
         }
     }
@@ -59,72 +59,72 @@ AddOwnerDialog::~AddOwnerDialog()
     delete ui;
 }
 
-QString AddOwnerDialog::getOwnerLastName()
+QString AddOwnerDialog::GetOwnerLastName()
 {
     return ui->lineEditLastName->text();
 }
 
-QString AddOwnerDialog::getownerFirstName()
+QString AddOwnerDialog::GetownerFirstName()
 {
     return ui->lineEditFirstName->text();
 }
 
-QString AddOwnerDialog::getOwnerMiddleName()
+QString AddOwnerDialog::GetOwnerMiddleName()
 {
     return ui->lineEditMiddleName->text();
 }
 
-QString AddOwnerDialog::getOwnerSex()
+QString AddOwnerDialog::GetOwnerSex()
 {
     return ui->comboBoxSex->currentText();
 }
 
-QString AddOwnerDialog::getOwnerAge()
+QString AddOwnerDialog::GetOwnerAge()
 {
     return  ui->lineEditAge->text();
 }
 
-QString AddOwnerDialog::getOwnerPhone()
+QString AddOwnerDialog::GetOwnerPhone()
 {
     return ui->lineEditTelephon->text();
 }
 
-int AddOwnerDialog::getOwnerHouseNumber()
+int AddOwnerDialog::GetOwnerHouseNumber()
 {
     return ui->comboBoxHouseNumber->currentText().toInt();
 }
 
-int AddOwnerDialog::getOwnerHouseCarNumber()
+int AddOwnerDialog::GetOwnerHouseCarNumber()
 {
     return ui->lineEditCarNumber->text().toInt();
 }
 
-int AddOwnerDialog::getOwnerHouseResidenceNumber()
+int AddOwnerDialog::GetOwnerHouseResidenceNumber()
 {
     return ui->lineEditResidenceNumber->text().toInt();
 }
 
-int AddOwnerDialog::getOwnerApartmentNumber()
+int AddOwnerDialog::GetOwnerApartmentNumber()
 {
     return ui->comboBoxAppartmentNumber->currentText().toInt();
 }
 
-QString AddOwnerDialog::getOwnerApartmentType()
+QString AddOwnerDialog::GetOwnerApartmentType()
 {
     return ui->comboBoxApartmentType->currentText();
 }
 
-float AddOwnerDialog::getOwnerApartmentArea()
+float AddOwnerDialog::GetOwnerApartmentArea()
 {
     return ui->comboBoxApartmentArea->currentText().toFloat();
 }
 
-QString AddOwnerDialog::getOwnerDateRegistration()
+QString AddOwnerDialog::GetOwnerDateRegistration()
 {
     return ui->dateEdit->text();
 }
 
-float AddOwnerDialog::getOwnerCalculatePaySum()
+float AddOwnerDialog::GetOwnerCalculatePaySum()
 {
     int listSize=tarifList.size();
     //int apartmentNumbers = 0;
@@ -133,10 +133,10 @@ float AddOwnerDialog::getOwnerCalculatePaySum()
     {
         //qDebug() << tarifList[i]->getHouseTarifNumber();
         //qDebug() << ui->comboBoxAppartmentNumber->currentText().toInt();
-        if(getOwnerHouseNumber()==tarifList[i]->getHouseTarifNumber())
+        if(GetOwnerHouseNumber()==tarifList[i]->GetHouseTarifNumber())
         {
-            qDebug() << getOwnerApartmentArea()*tarifList[i]->getTarifSum();
-            return getOwnerApartmentArea()*tarifList[i]->getTarifSum();
+            qDebug() << GetOwnerApartmentArea()*tarifList[i]->GetTarifSum();
+            return GetOwnerApartmentArea()*tarifList[i]->GetTarifSum();
             //break;
         }
     }

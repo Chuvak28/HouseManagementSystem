@@ -11,7 +11,7 @@ OwnerInfoForm::OwnerInfoForm(QWidget *parent) :
     mAddOwnerDialog->setModal(true);
     ui->tableWidget->setEditTriggers(QAbstractItemView::DoubleClicked);
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-    readFromFile();
+    OnReadFromFile();
 
 
 
@@ -53,7 +53,7 @@ void OwnerInfoForm::on_btnCalc_clicked()
 
 
 
-            float calc=ui->tableWidget->item(r,12)->text().toInt()*tarifList[i]->getTarifSum();
+            float calc=ui->tableWidget->item(r,12)->text().toInt()*tarifList[i]->GetTarifSum();
             ui->tableWidget->item( r, 9 )->setText(QString::number(calc));
             ui->tableWidget->item( r, 10 )->setText(QString::number(0));
             int toPayment=calc+ui->tableWidget->item( r, 11 )->text().toInt();
@@ -63,33 +63,33 @@ void OwnerInfoForm::on_btnCalc_clicked()
     }
 }
 
-void OwnerInfoForm::setOwnerCalculated()
+void OwnerInfoForm::SetOwnerCalculated()
 {
 
 }
 
-void OwnerInfoForm::setOwnerToPayment()
+void OwnerInfoForm::SetOwnerToPayment()
 {
     ownerToPayment=ownerToPayment-ownerPayed;
 }
 
-void OwnerInfoForm::setData()
+void OwnerInfoForm::SetData()
 {
-    ownerLastName=mAddOwnerDialog->getOwnerLastName();
-    ownerFirstName=mAddOwnerDialog->getownerFirstName();
-    ownerMiddleName=mAddOwnerDialog->getOwnerMiddleName();
-    ownerDateRegistration=mAddOwnerDialog->getOwnerDateRegistration();
-    ownerSex=mAddOwnerDialog->getOwnerSex();
-    ownerAge=mAddOwnerDialog->getOwnerAge();
-    ownerPhone=mAddOwnerDialog->getOwnerPhone();
-    ownerApartmentArea=mAddOwnerDialog->getOwnerApartmentArea();
-    ownerHouseNumber=mAddOwnerDialog->getOwnerHouseNumber();
-    ownerHouseCarNumber=mAddOwnerDialog->getOwnerHouseCarNumber();
-    ownerHouseResidenceNumber=mAddOwnerDialog->getOwnerHouseResidenceNumber();
-    ownerApartmentNumber=mAddOwnerDialog->getOwnerApartmentNumber();
-    ownerApartmentType=mAddOwnerDialog->getOwnerApartmentType();
+    ownerLastName=mAddOwnerDialog->GetOwnerLastName();
+    ownerFirstName=mAddOwnerDialog->GetownerFirstName();
+    ownerMiddleName=mAddOwnerDialog->GetOwnerMiddleName();
+    ownerDateRegistration=mAddOwnerDialog->GetOwnerDateRegistration();
+    ownerSex=mAddOwnerDialog->GetOwnerSex();
+    ownerAge=mAddOwnerDialog->GetOwnerAge();
+    ownerPhone=mAddOwnerDialog->GetOwnerPhone();
+    ownerApartmentArea=mAddOwnerDialog->GetOwnerApartmentArea();
+    ownerHouseNumber=mAddOwnerDialog->GetOwnerHouseNumber();
+    ownerHouseCarNumber=mAddOwnerDialog->GetOwnerHouseCarNumber();
+    ownerHouseResidenceNumber=mAddOwnerDialog->GetOwnerHouseResidenceNumber();
+    ownerApartmentNumber=mAddOwnerDialog->GetOwnerApartmentNumber();
+    ownerApartmentType=mAddOwnerDialog->GetOwnerApartmentType();
     ownerPayed=0;
-    ownerCalculated=mAddOwnerDialog->getOwnerCalculatePaySum();
+    ownerCalculated=mAddOwnerDialog->GetOwnerCalculatePaySum();
     ownerToPayment=ownerCalculated;
 }
 
@@ -98,7 +98,7 @@ void OwnerInfoForm::on_btnAdd_clicked()
     tableRows=ui->tableWidget->rowCount();
     if(mAddOwnerDialog->exec()==QDialog::Accepted)
     {
-        setData();
+        SetData();
         ui->tableWidget->insertRow(tableRows);
         ui->tableWidget->setItem(tableRows,0, new QTableWidgetItem(ownerLastName));
         ui->tableWidget->setItem(tableRows,1, new QTableWidgetItem(ownerFirstName));
@@ -121,11 +121,11 @@ void OwnerInfoForm::on_btnAdd_clicked()
 
 void OwnerInfoForm::closeEvent(QCloseEvent *event)
 {
-    saveToFile();
+    OnSaveToFile();
     event->accept();
 }
 
-void OwnerInfoForm::saveToFile()
+void OwnerInfoForm::OnSaveToFile()
 {
     QFile f("owner.csv");
 
@@ -147,7 +147,7 @@ void OwnerInfoForm::saveToFile()
     }
 }
 
-void OwnerInfoForm::readFromFile()
+void OwnerInfoForm::OnReadFromFile()
 {
     ownerList = HouseManagementSystem::getInstance()->getOwnerList();
     int counter=0;
@@ -155,37 +155,37 @@ void OwnerInfoForm::readFromFile()
     {
         ui->tableWidget->insertRow(counter);
         ui->tableWidget->setItem(counter, 0,
-                                 new QTableWidgetItem(ownerList[i]->getOwnerLastName()));
+                                 new QTableWidgetItem(ownerList[i]->GetOwnerLastName()));
         ui->tableWidget->setItem(counter, 1,
-                                 new QTableWidgetItem(ownerList[i]->getownerFirstName()));
+                                 new QTableWidgetItem(ownerList[i]->GetownerFirstName()));
         ui->tableWidget->setItem(counter, 2,
-                                 new QTableWidgetItem(ownerList[i]->getOwnerMiddleName()));
+                                 new QTableWidgetItem(ownerList[i]->GetOwnerMiddleName()));
         ui->tableWidget->setItem(counter, 3,
-                                 new QTableWidgetItem(QString::number(ownerList[i]->getOwnerHouseNumber())));
+                                 new QTableWidgetItem(QString::number(ownerList[i]->GetOwnerHouseNumber())));
         ui->tableWidget->setItem(counter, 4,
-                                 new QTableWidgetItem(QString::number(ownerList[i]->getOwnerApartmentNumber())));
+                                 new QTableWidgetItem(QString::number(ownerList[i]->GetOwnerApartmentNumber())));
         ui->tableWidget->setItem(counter, 5,
-                                 new QTableWidgetItem(ownerList[i]->getOwnerDateRegistration()));
+                                 new QTableWidgetItem(ownerList[i]->GetOwnerDateRegistration()));
         ui->tableWidget->setItem(counter, 6,
-                                 new QTableWidgetItem(ownerList[i]->getOwnerSex()));
+                                 new QTableWidgetItem(ownerList[i]->GetOwnerSex()));
         ui->tableWidget->setItem(counter, 7,
-                                 new QTableWidgetItem(ownerList[i]->getOwnerAge()));
+                                 new QTableWidgetItem(ownerList[i]->GetOwnerAge()));
         ui->tableWidget->setItem(counter, 8,
-                                 new QTableWidgetItem(ownerList[i]->getOwnerPhone()));
+                                 new QTableWidgetItem(ownerList[i]->GetOwnerPhone()));
         ui->tableWidget->setItem(counter, 9,
-                                 new QTableWidgetItem(QString::number(ownerList[i]->getOwnerCalculated())));
+                                 new QTableWidgetItem(QString::number(ownerList[i]->GetOwnerCalculated())));
         ui->tableWidget->setItem(counter, 10,
-                                 new QTableWidgetItem(QString::number(ownerList[i]->getOwnerPayed())));
+                                 new QTableWidgetItem(QString::number(ownerList[i]->GetOwnerPayed())));
         ui->tableWidget->setItem(counter, 11,
-                                 new QTableWidgetItem(QString::number(ownerList[i]->getOwnerToPayment())));
+                                 new QTableWidgetItem(QString::number(ownerList[i]->GetOwnerToPayment())));
         ui->tableWidget->setItem(counter, 12,
-                                 new QTableWidgetItem(QString::number(ownerList[i]->getOwnerApartmentArea())));
+                                 new QTableWidgetItem(QString::number(ownerList[i]->GetOwnerApartmentArea())));
         ui->tableWidget->setItem(counter, 13,
-                                 new QTableWidgetItem(QString::number(ownerList[i]->getOwnerHouseCarNumber())));
+                                 new QTableWidgetItem(QString::number(ownerList[i]->GetOwnerHouseCarNumber())));
         ui->tableWidget->setItem(counter, 14,
-                                 new QTableWidgetItem(QString::number(ownerList[i]->getOwnerHouseResidenceNumber())));
+                                 new QTableWidgetItem(QString::number(ownerList[i]->GetOwnerHouseResidenceNumber())));
         ui->tableWidget->setItem(counter, 15,
-                                 new QTableWidgetItem(ownerList[i]->getOwnerApartmentType()));
+                                 new QTableWidgetItem(ownerList[i]->GetOwnerApartmentType()));
         counter++;
 
     }
@@ -228,82 +228,82 @@ void OwnerInfoForm::readFromFile()
     //    file.close();
 }
 
-QString OwnerInfoForm::getOwnerLastName() const
+QString OwnerInfoForm::GetOwnerLastName() const
 {
     return ownerLastName;
 }
 
-QString OwnerInfoForm::getownerFirstName() const
+QString OwnerInfoForm::GetownerFirstName() const
 {
     return ownerFirstName;
 }
 
-QString OwnerInfoForm::getOwnerMiddleName() const
+QString OwnerInfoForm::GetOwnerMiddleName() const
 {
     return ownerMiddleName;
 }
 
-QString OwnerInfoForm::getOwnerSex() const
+QString OwnerInfoForm::GetOwnerSex() const
 {
     return ownerSex;
 }
 
-QString OwnerInfoForm::getOwnerAge() const
+QString OwnerInfoForm::GetOwnerAge() const
 {
     return ownerAge;
 }
 
-QString OwnerInfoForm::getOwnerPhone() const
+QString OwnerInfoForm::GetOwnerPhone() const
 {
     return ownerPhone;
 }
 
-int OwnerInfoForm::getOwnerHouseNumber()const
+int OwnerInfoForm::GetOwnerHouseNumber()const
 {
     return ownerHouseNumber;
 }
 
-int OwnerInfoForm::getOwnerHouseCarNumber()const
+int OwnerInfoForm::GetOwnerHouseCarNumber()const
 {
     return ownerHouseCarNumber;
 }
 
-int OwnerInfoForm::getOwnerHouseResidenceNumber()const
+int OwnerInfoForm::GetOwnerHouseResidenceNumber()const
 {
     return ownerHouseResidenceNumber;
 }
 
-int OwnerInfoForm::getOwnerApartmentNumber()const
+int OwnerInfoForm::GetOwnerApartmentNumber()const
 {
     return ownerApartmentNumber;
 }
 
-float OwnerInfoForm::getOwnerCalculated()const
+float OwnerInfoForm::GetOwnerCalculated()const
 {
     return ownerCalculated;
 }
 
-int OwnerInfoForm::getOwnerPayed()const
+int OwnerInfoForm::GetOwnerPayed()const
 {
     return ownerPayed;
 }
 
-int OwnerInfoForm::getOwnerToPayment()const
+int OwnerInfoForm::GetOwnerToPayment()const
 {
     return ownerToPayment;
 }
 
-QString OwnerInfoForm::getOwnerApartmentType()const
+QString OwnerInfoForm::GetOwnerApartmentType()const
 {
     return ownerApartmentType;
 }
 
-QString OwnerInfoForm::getOwnerDateRegistration()const
+QString OwnerInfoForm::GetOwnerDateRegistration()const
 {
     return ownerDateRegistration;
 }
 
-float OwnerInfoForm::getOwnerApartmentArea()const
+float OwnerInfoForm::GetOwnerApartmentArea()const
 {
     return ownerApartmentArea;
 }

@@ -38,24 +38,24 @@ public:
         this->areaOfBasement=areaOfBasement;
     }
     ~ObjectInfoForm();
-    void setData();
-    QString getAddress();
-    int     getNumber();
-    float   getAreaLand();//
-    float   getAreaYard();
-    float   getAreaBuilding();
-    float   getAreaRoof();//
-    float   getAreaBasement();
-    float   getAreaStaircase();
-    int     getNumberStages();
-    int     getNumberApartments();
-    int     getNumberEntrances();
+    void    SetData();
+    QString GetAddress();
+    int     GetNumber();
+    float   GetAreaLand();//
+    float   GetAreaYard();
+    float   GetAreaBuilding();
+    float   GetAreaRoof();//
+    float   GetAreaBasement();
+    float   GetAreaStaircase();
+    int     GetNumberStages();
+    int     GetNumberApartments();
+    int     GetNumberEntrances();
 
 private slots:
     void on_btnAdd_2_clicked();
     void closeEvent(QCloseEvent *event);
-    void saveToFile();
-    void readFromFile();
+    void OnSaveToFile();
+    void OnReadFromFile();
     void on_btnDelete_2_clicked();
 
 private:

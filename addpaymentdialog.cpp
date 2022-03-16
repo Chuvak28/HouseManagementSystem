@@ -14,7 +14,7 @@ AddPaymentDialog::AddPaymentDialog(QWidget *parent) :
 
     for(int i=0;i<listSize;i++)
     {
-        ui->cmbHouseNumber->addItem(QString::number(objectList[i]->getNumber()));
+        ui->cmbHouseNumber->addItem(QString::number(objectList[i]->GetNumber()));
     }
 }
 
@@ -67,8 +67,8 @@ AddPaymentDialog::AddPaymentDialog(QWidget *parent) :
 void AddPaymentDialog::on_btnAdd_clicked()
 {
 
-    ownerList[getNumberInList]->setOwnerPayment(getPaymentSum());
-    ownerList[getNumberInList]->setOwnerToPayment();
+    ownerList[getNumberInList]->SetOwnerPayment(GetPaymentSum());
+    ownerList[getNumberInList]->SetOwnerToPayment();
 //    for(auto vecElement : qAsConst(ownerList))
 //    {
 //        qDebug() << vecElement->getOwnerLastName() << ";"
@@ -98,22 +98,22 @@ void AddPaymentDialog::on_btnAdd_clicked()
         QStringList strList;
         for(auto vecElement : qAsConst(ownerList))
         {
-            data << vecElement->getOwnerLastName() << ";"
-               << vecElement->getownerFirstName()<< ';'
-               << vecElement->getOwnerMiddleName() << ";"
-               << vecElement->getOwnerHouseNumber() << ";"
-               << vecElement->getOwnerApartmentNumber() << ";"
-               << vecElement->getOwnerDateRegistration() << ";"
-               << vecElement->getOwnerSex() << ";"
-               << vecElement->getOwnerAge() << ";"
-               << vecElement->getOwnerPhone() << ";"
-               << vecElement->getOwnerCalculated() << ";"
-               << vecElement->getOwnerPayed() << ";"
-               << vecElement->getOwnerToPayment() << ";"
-               << vecElement->getOwnerApartmentArea() << ";"
-               << vecElement->getOwnerHouseCarNumber() << ";"
-               << vecElement->getOwnerHouseResidenceNumber() << ";"
-               << vecElement->getOwnerApartmentType() << ";"
+            data << vecElement->GetOwnerLastName() << ";"
+               << vecElement->GetownerFirstName()<< ';'
+               << vecElement->GetOwnerMiddleName() << ";"
+               << vecElement->GetOwnerHouseNumber() << ";"
+               << vecElement->GetOwnerApartmentNumber() << ";"
+               << vecElement->GetOwnerDateRegistration() << ";"
+               << vecElement->GetOwnerSex() << ";"
+               << vecElement->GetOwnerAge() << ";"
+               << vecElement->GetOwnerPhone() << ";"
+               << vecElement->GetOwnerCalculated() << ";"
+               << vecElement->GetOwnerPayed() << ";"
+               << vecElement->GetOwnerToPayment() << ";"
+               << vecElement->GetOwnerApartmentArea() << ";"
+               << vecElement->GetOwnerHouseCarNumber() << ";"
+               << vecElement->GetOwnerHouseResidenceNumber() << ";"
+               << vecElement->GetOwnerApartmentType() << ";"
             << endl;
         }
 
@@ -137,9 +137,9 @@ void AddPaymentDialog::on_cmbHouseNumber_currentIndexChanged(const QString &arg1
     apartmentNumbers = 0;
     for(int i=0;i<listSize;++i)
     {
-        if(arg1.toInt()==objectList[i]->getNumber())
+        if(arg1.toInt()==objectList[i]->GetNumber())
         {
-            apartmentNumbers=objectList[i]->getNumberApartments();
+            apartmentNumbers=objectList[i]->GetNumberApartments();
 
             break;
         }
@@ -157,11 +157,11 @@ void AddPaymentDialog::on_cmbApartmentNumber_currentIndexChanged(const QString &
     QString name;
     for(int i=0;i<listSize;++i)
     {
-        if(arg1.toInt()==ownerList[i]->getOwnerApartmentNumber())
+        if(arg1.toInt()==ownerList[i]->GetOwnerApartmentNumber())
         {
-            name=ownerList[i]->getOwnerLastName()+
-                    " " +ownerList[i]->getownerFirstName()+
-                    " " +ownerList[i]->getOwnerMiddleName();
+            name=ownerList[i]->GetOwnerLastName()+
+                    " " +ownerList[i]->GetownerFirstName()+
+                    " " +ownerList[i]->GetOwnerMiddleName();
             getNumberInList=i;
             //qDebug() << "Appa Number" << getNumberInList;
             break;
@@ -189,37 +189,37 @@ AddPaymentDialog::~AddPaymentDialog()
     delete ui;
 }
 
-int AddPaymentDialog::getIdPaymentNumber()
+int AddPaymentDialog::GetIdPaymentNumber()
 {
     return ID++;
 }
 
-int AddPaymentDialog::getTicketPaymentNumber()
+int AddPaymentDialog::GetTicketPaymentNumber()
 {
     return ui->lineEdit->text().toInt();
 }
 
-QString AddPaymentDialog::getDatePayment()
+QString AddPaymentDialog::GetDatePayment()
 {
     return ui->dateTimeEdit->text();
 }
 
-int AddPaymentDialog::getHousePaymentNumber()
+int AddPaymentDialog::GetHousePaymentNumber()
 {
     return ui->cmbHouseNumber->currentText().toInt();
 }
 
-int AddPaymentDialog::getApartmentPaymentNumber()
+int AddPaymentDialog::GetApartmentPaymentNumber()
 {
     return ui->cmbApartmentNumber->currentText().toInt();
 }
 
-QString AddPaymentDialog::getFioPayment()
+QString AddPaymentDialog::GetFioPayment()
 {
     return ui->lineEditName->text();
 }
 
-unsigned int AddPaymentDialog::getPaymentSum()
+unsigned int AddPaymentDialog::GetPaymentSum()
 {
     return ui->lineEditSum->text().toUInt();
 }

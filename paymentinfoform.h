@@ -32,23 +32,23 @@ public:
         this->paymentSum=paymentSum;//
     }
 
-    int getIdPaymentNumber();
-    int getTicketPaymentNumber();
-    QString getDatePayment();
-    int getHousePaymentNumber();
-    int getApartmentPaymentNumber();
-    QString getFioPayment();
-    unsigned int getPaymentSum();
+    int GetIdPaymentNumber();
+    int GetTicketPaymentNumber();
+    QString GetDatePayment();
+    int GetHousePaymentNumber();
+    int GetApartmentPaymentNumber();
+    QString GetFioPayment();
+    unsigned int GetPaymentSum();
 
-    void setData();
+    void SetData();
 
     ~PaymentInfoForm();
 
 private slots:
     void on_btnAdd_clicked();
-    void saveToFile();
+    void OnSaveToFile();
     void closeEvent(QCloseEvent *event);
-    void readFromFile();
+    void OnReadFromFile();
 
     void on_btnDelete_clicked();
 
