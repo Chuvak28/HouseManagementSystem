@@ -84,7 +84,7 @@ void MainWindow::ConnectObjects()
             &MainWindow::OnAddObject_triggered);
 }
 
-void MainWindow::loadSubWindow(QWidget *widget)
+void MainWindow::LoadSubWindow(QWidget *widget)
 {
     //auto window = ui->mdiArea->addSubWindow(widget);
     auto window = m_Area->addSubWindow(widget);
@@ -95,31 +95,31 @@ void MainWindow::loadSubWindow(QWidget *widget)
 void MainWindow::OnAddObject_triggered()
 {
     mAddEditObjectForm=new ObjectInfoForm(this);
-    loadSubWindow(mAddEditObjectForm);
+    LoadSubWindow(mAddEditObjectForm);
 }
 
 void MainWindow::OnAddOwner_triggered()
 {
     mAddEditOwnerForm=new OwnerInfoForm(this);
-    loadSubWindow(mAddEditOwnerForm);
+    LoadSubWindow(mAddEditOwnerForm);
 }
 
 void MainWindow::OnAddPayment_triggered()
 {
     mAddEditPaymentForm=new PaymentInfoForm(this);
-    loadSubWindow(mAddEditPaymentForm);
+    LoadSubWindow(mAddEditPaymentForm);
 }
 
 void MainWindow::OnAddTarif_triggered()
 {
     mAddEditTariffForm = new TariffInfoForm(this);
-    loadSubWindow(mAddEditTariffForm);
+    LoadSubWindow(mAddEditTariffForm);
 }
 
 //void MainWindow::on_actionAddObject_triggered()
 //{
 //    mAddEditObjectForm=new ObjectInfoForm(this);
-//    loadSubWindow(mAddEditObjectForm);
+//    LoadSubWindow(mAddEditObjectForm);
 //}
 
 
@@ -127,21 +127,21 @@ void MainWindow::OnAddTarif_triggered()
 //void MainWindow::on_actionAddOwner_triggered()
 //{
 //    mAddEditOwnerForm=new OwnerInfoForm(this);
-//    loadSubWindow(mAddEditOwnerForm);
+//    LoadSubWindow(mAddEditOwnerForm);
 //}
 
 
 //void MainWindow::on_actionAddPayment_triggered()
 //{
 //    mAddEditPaymentForm=new PaymentInfoForm(this);
-//    loadSubWindow(mAddEditPaymentForm);
+//    LoadSubWindow(mAddEditPaymentForm);
 //}
 
 
 //void MainWindow::on_actionAddTarif_triggered()
 //{
 //    mAddEditTariffForm = new TariffInfoForm(this);
-//    loadSubWindow(mAddEditTariffForm);
+//    LoadSubWindow(mAddEditTariffForm);
 //}
 
 
